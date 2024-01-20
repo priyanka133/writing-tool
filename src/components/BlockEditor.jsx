@@ -68,29 +68,33 @@ const BlockEditor = () => {
 
   return (
     <div className="block-editor-container">
-      <Button className="add-btn" icon={<PlusOutlined />} onClick={handleAddBlock}>
+      <Button className="add-btn" type='secondary' icon={<PlusOutlined />} onClick={handleAddBlock}>
         Add Block
       </Button>
 
-      <Modal
-        visible={showModal}
-        title="Add Block"
-        onCancel={handleCloseModal}
-        onOk={handleSaveBlock}
-        maskClosable={false}
-        okButtonProps={{ disabled: !blockType }}
+      <Modal 
+      
+      visible={showModal}
+      title="Add Block"
+      onCancel={handleCloseModal}
+      onOk={handleSaveBlock}
+      maskClosable={false}
+      okButtonProps={{ disabled: !blockType, style: { background: '#000', color: '#fff' } }}
+      cancelButtonProps={{ style: { background: '#000', color: '#fff', borderColor: '#000' } }}
       >
         <div>
           <Button
             value="text"
-            style={{ width: '50%' }}
+            className="button" 
+            style={{ width: '48%', margin:'5px' }}
             onClick={() => setBlockType('text')}
           >
             Text Block
           </Button>
           <Button
             value="picture"
-            style={{ width: '50%' }}
+            className="button" 
+            style={{ width: '48%' }}
             onClick={() => setBlockType('picture')}
           >
             Picture Block
